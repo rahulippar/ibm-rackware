@@ -5,7 +5,8 @@ variable "TF_VERSION" {
 }
 
 variable "image_url" {
-  default = "cos://us-south/cos-davidng-south/RackWareRMMP2PBYOL.qcow2"
+  /* default = "cos://us-south/cos-davidng-south/RackWareRMMP2PBYOL.qcow2" */
+  default = "cos://us-east/rackware-rmm-bucket/RackWareBYOLNov2021.qcow2"
 }
 
 /**
