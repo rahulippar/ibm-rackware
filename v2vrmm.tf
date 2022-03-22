@@ -8,7 +8,8 @@ variable "image_url" {
   /* default = "cos://us-south/cos-davidng-south/RackWareRMMP2PBYOL.qcow2" */
   /* default = "cos://us-east/rackware-rmm-bucket/RackWareBYOLNov2021.qcow2" */
   /* default = "cos://us-east/rri-cos-wes-us-east/RRI_V2V_RMM_RackWareBYOLNov2021_RackWareBYOLNov2021.qcow2" */
-  default = "cos://us-east/kal-rmm/rri_RackWareBYOLNov2021.qcow2"
+  /* default = "cos://us-east/kal-rmm/rri_RackWareBYOLNov2021.qcow2" */
+  default = "cos://us-east/kal-rmm/RMM_2022_02_28_RackWareRMMv7.4.0.561.qcow2"
 }
 
 /**
