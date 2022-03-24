@@ -14,7 +14,7 @@ cd /opt/IBM/VMware
  
 for f in checksum.txt config.ini discoveryTool
 do
-  response=$(curl -so ${f} -w "%{http_code}" https://raw.githubusercontent.com/IBM-Cloud/vpc-migration-tools/rmm-v2v-h2v-discoverytool/v2v-discovery-tool-rmm/VMware/${f})
+  response=$(curl -so ${f} -w "%{http_code}" https://raw.githubusercontent.com/IBM-Cloud/vpc-migration-tools/main/v2v-discovery-tool-rmm/VMware/${f})
    if [ "$response" -eq "200" ]; then
     echo "${f} download complete - /opt/IBM/VMware, http response code is: $response" >>/var/log/discovery_download_script.log
    else
@@ -55,7 +55,7 @@ fi
  
 for f in checksum.txt config.ini discoveryTool
 do
-  response=$(curl -so ${f} -w "%{http_code}" https://raw.githubusercontent.com/IBM-Cloud/vpc-migration-tools/rmm-v2v-h2v-discoverytool/v2v-discovery-tool-rmm/HyperV/${f})
+  response=$(curl -so ${f} -w "%{http_code}" https://raw.githubusercontent.com/IBM-Cloud/vpc-migration-tools/main/v2v-discovery-tool-rmm/HyperV/${f})
    if [ "$response" -eq "200" ]; then
     echo "${f} download complete - /opt/IBM/HyperV, http response code is: $response" >>/var/log/discovery_download_script.log
    else
@@ -81,4 +81,3 @@ if [ "$configinichecksum" -eq "$configini_cksum" ]; then
     echo "checksum opt/IBM/HyperV/config.ini found match" >>/var/log/discovery_download_script.log
 else
     echo "checksum /opt/IBM/HyperV/config.ini mismatch" >>/var/log/discovery_download_script.log
-fi
