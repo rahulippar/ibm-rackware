@@ -1,5 +1,3 @@
-/* THIS IS TEMPORARY CHANGED CODE FOR TESTING */
-
 variable "TF_VERSION" {
   default     = "0.12"
   description = "terraform engine version to be used in schematics"
@@ -146,4 +144,9 @@ variable "name" {
 variable "subnet_name" {
   description = "The name of subnet."
   type        = string
+}
+
+variable "is_fip" {
+  description = "Do you want to create and associate floating IP address?"
+  type        = false
 }
