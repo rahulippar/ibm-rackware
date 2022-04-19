@@ -1,10 +1,12 @@
 variable "TF_VERSION" {
   default     = "0.12"
-  description = "terraform engine version to be used in schematics"
+  description = "Terraform engine version to be used in schematics"
 }
 
 variable "image_url" {
-  default = "cos://us-east/rackware-rmm-bucket/RackWareRMMv7.4.0.561.qcow2"
+  # default = "cos://us-east/rackware-rmm-bucket/RackWareRMMv7.4.0.561.qcow2"
+  default = "cos://us-east/kal-rmm/RMM_2022_02_28_RackWareRMMv7.4.0.561.qcow2"
+  description = "URL for source VSI image used to spin up instance."
 }
 
 /**
@@ -87,7 +89,7 @@ resource "ibm_is_instance" "vsi" {
   image          = ibm_is_image.custom_image.id
   profile        = var.profile
 
-  user_data = file("download_discovery.sh")
+  # user_data = file("download_discovery.sh")
   primary_network_interface {
     subnet          = data.ibm_is_subnet.subnet.id
     security_groups = [data.ibm_is_security_group.sg.id]
