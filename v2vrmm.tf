@@ -129,11 +129,12 @@ variable "zone" {
 }
 
 variable "resource_group" {
-  description = "Please enter your resource group name."
+  description = "Resource group name."
 }
 
 variable "profile" {
   default = "bx2-2x8"
+  description = "Profile for compute server."
 }
 
 variable "name" {
@@ -148,5 +149,6 @@ variable "subnet_name" {
 
 variable "is_fip" {
   description = "Do you want to create and associate floating IP address?"
-  type        = false
+  type        = bool
+  default     = false
 }
