@@ -1,13 +1,12 @@
-/*terraform {
+terraform {
   required_providers {
     ibm = {
       source  = "ibm-cloud/ibm"
-      #version = "1.38.0"
+      version = "1.38.0"
     }
   }
   required_version = ">= 0.12"
 }
-*/
   
 variable "TF_VERSION" {
   default     = "0.15"
