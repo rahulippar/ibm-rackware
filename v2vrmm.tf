@@ -1,21 +1,6 @@
-terraform {
-  required_providers {
-    ibm = {
-      source  = "ibm-cloud/ibm"
-      version = "1.38.0"
-    }
-  }
-  #required_version = ">= 0.12"
-}
-  
-variable "TF_VERSION" {
-  default     = "0.15"
-  description = "Terraform engine version to be used in schematics"
-}
-
 provider "ibm" {
   ibmcloud_api_key = var.ibmcloud_api_key
-  region = var.ibm_region
+  region           = var.ibm_region
 }
 
 data "ibm_is_vpc" "vpc" {
@@ -104,13 +89,16 @@ resource "ibm_is_floating_ip" "fip" {
 
 output "PUBLIC_IP" {
   description = "Public ip address of RMM server."
-  value = var.is_create_fip ? ibm_is_floating_ip.fip[0].address : "Public IP address is not created."
+  value       = var.is_create_fip ? ibm_is_floating_ip.fip[0].address : "Public IP address is not created."
 }
 
-
+variable "TF_VERSION" {
+  default     = "0.15"
+  description = "Terraform engine version to be used in schematics"
+}
 
 variable "image_url" {
-  default = "cos://us-east/rackware-rmm-bucket/RackWareRMMv7.4.0.561.qcow2"
+  default     = "cos://us-east/rackware-rmm-bucket/RackWareRMMv7.4.0.561.qcow2"
   description = "URL for source VSI image used to spin up instance."
 }
 
@@ -130,7 +118,7 @@ variable "ibm_region" {
 }
 
 variable "zone" {
-  description = "The zone of VPC."
+  description = "Availability zone of region."
   type        = string
 }
 
@@ -139,7 +127,7 @@ variable "resource_group" {
 }
 
 variable "profile" {
-  default = "bx2-2x8"
+  default     = "bx2-2x8"
   description = "Profile for compute server."
 }
 
